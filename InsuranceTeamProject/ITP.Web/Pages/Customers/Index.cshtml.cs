@@ -11,13 +11,13 @@ namespace ITP.WebApp.Pages.Customers
 {
     public class IndexModel : PageModel
     {
-        /*public List<Customer> Customers{ get; set; }
+        public List<Customer> Customers{ get; set; }
         public CustomerStore CustomerStore { get; set; }
         public IndexModel(CustomerStore customerStore )
         {
             this.CustomerStore = customerStore;
             Customers = customerStore.GetCustomers();
-        }*/
+        }
         public void OnGet()
         {
 

@@ -36,8 +36,9 @@ namespace ITP.WebApp
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddScoped<DniType>(); //Se registra contenedor de dependencias para tipo de Dni
-            services.AddScoped<CustomerStore>();
+            services.AddScoped<DniStore>(); //Se registra contenedor de dependencias para tipo de Dni
+            services.AddScoped<CityStore>(); //Se registra contenedor de dependencias para Ciudades
+            services.AddScoped<CustomerStore>(); //Contenedor de dependencias para administrar Clientes
             services.AddDbContext<ITContext>(opt =>
             opt.UseSqlServer(Configuration.GetConnectionString("ITSql"),
             sqlServerOptionsAction: sqlOptions =>

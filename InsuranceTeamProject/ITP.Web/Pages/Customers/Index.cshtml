@@ -5,16 +5,21 @@
     ViewData["Title"] = "Customers";
 }
 
-<h1>Customers</h1>
+<h3>Customers</h3>
 
-<a asp-page="Add">Add New Customber</a>
-<!--
+<div class="icon-preview col s6 m3 first-button button-item">
+    <a asp-page="Add" class="btn-floating btn-medium waves-effect waves-light white">
+        <i class="material-icons dp48">add</i>
+    </a>
+    <span class="btn-text">Add New Customer</span>
+</div>
+
 <form method="POST">
-    <table class="table">
-        <thead class="thead-dark">
+    <table class="table responsive-table">
+        <thead class="thead-dark my-thead">
             <tr>
-                <th>DocType</th>
                 <th>DocNumer</th>
+                <th>DocType</th>
                 <th>Name</th>
                 <th>Last Name</th>
                 <th>Born Date</th>
@@ -28,33 +33,33 @@
             @foreach (var item in Model.Customers)
             {
             <tr>
-                <td>@item.DocType</td>
                 <td>@item.DocNumber</td>
+                <td>@item.DocType</td>
                 <td>@item.Name</td>
                 <td>@item.LastName</td>
-                <td>@item.BornDate</td>
+                <td>@item.BornDate.ToString("dd/MM/yyyy")</td>
                 <td>@item.City</td>
                 <td>
                     <a asp-page="../Insurances/Add"
                        asp-route-customerid="@item.Id"
-                       class="waves-effect waves-light btn">
-                        <i class="large material-icons">PageView</i>
+                       class="btn-floating btn-medium waves-effect waves-light white">
+                        <i class="medium material-icons button-item">remove_red_eye</i>
                     </a>
 
                 </td>
                 <td>
                     <a asp-page="Edit"
                        asp-route-id="@item.Id"
-                       class="waves-effect waves-light btn">
-                        <i class="large material-icons">Edit</i>
+                       class="btn-floating btn-medium waves-effect waves-light white">
+                        <i class="medium material-icons button-item">edit</i>
                     </a>
                 </td>
                 <td>
                     <button type="submit"
-                            class="btn btn-danger"
+                            class="btn-floating btn-medium waves-effect waves-light white"
                             asp-page-handler="delete"
                             asp-route-id="@item.Id">
-                        <i class="large material-icons">Delete</i>
+                        <i class="medium material-icons button-item">delete</i>
                     </button>
                 </td>
             </tr>
@@ -62,5 +67,6 @@
         </tbody>
     </table>
 </form>
-
-    -->
+<br />
+<br />
+<br />

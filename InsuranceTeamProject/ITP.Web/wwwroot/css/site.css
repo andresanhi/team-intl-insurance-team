@@ -58,13 +58,33 @@ body {
 /*#region Navbar */
 .navbar {
     background-color: #253746 !important;
-    height: 10%;
+    height: 120% !important;
+    position: fixed;
+}
+
+.navbar-brand{
+    padding:5%;
 }
 
 .navbar ul li a {
     color: #ffffff !important;
     text-transform: uppercase;
-    font-family : "Open Sans" !important, Sans-serif;
+    font-family: "Open Sans" !important, Sans-serif;
+}
+
+.sidenav {
+    background-color: #253746 !important;
+}
+.sidenav li a {
+    color: #ffffff !important;
+    text-transform: uppercase;
+    font-family: "Open Sans" !important, Sans-serif;
+}
+
+.sidenav li a:hover {
+    color: #62e52c !important;
+    box-shadow: none !important;
+    border-color: none !important;
 }
 
 .navbar ul li a:hover {
@@ -82,4 +102,51 @@ nav ul a {
     color: #ffffff !important;
 }
 
-    /*#endregion */
+nav div ul li a:active {
+    color: #62e52c !important;
+}
+a:active {
+    color: #62e52c !important;
+}
+
+.item-nav {
+    margin-top:1%;
+}
+/*#endregion */
+/*#region Icons*/
+div a span {
+    margin-top: .5%;
+    position: absolute;
+    color: #62e52c;
+    font-weight: bold;
+}
+div.button-item a i {
+    color: #62e52c;
+    font-weight: bold;
+}
+
+.button-item {
+    color: #62e52c !important;
+    font-weight: bold;
+}
+/*#endregion */
+
+/*#region Table */
+.my-thead {
+    background-color: #253746 !important;
+    color: white !important;
+}
+
+
+/*#endregion */
+
+
+/*#region General*/
+.first-button{
+    margin-bottom:2%;
+}
+.btn-text{
+    margin-left:2% !important;
+}
+
+/*#endregion */

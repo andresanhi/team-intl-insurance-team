@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ITP.WebApp.Data
 {
     public class CustomerStore
-    {/*
+    {
         public ITContext Context { get; set; }
         public CustomerStore(ITContext context)
         {
@@ -17,6 +17,12 @@ namespace ITP.WebApp.Data
         public List<Customer> GetCustomers()
         {
             return Context.Customer.ToList();
-        }*/
+        }
+
+        internal void AddCustomer(Customer customer)
+        {
+            Context.Customer.Add(customer);
+            Context.SaveChanges();
+        }
     }
 }

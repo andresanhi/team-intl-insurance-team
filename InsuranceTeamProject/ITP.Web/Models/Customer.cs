@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,12 +13,18 @@ namespace ITP.WebApp.Models
         {
             this.Id = Guid.NewGuid();
         }
+        [Required]
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
         public string DocType { get; set; }
+        [Required]
         public int DocNumber { get; set; }
-        public int BornDate { get; set; }
-        public DateTime City { get; set; }
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required, Column(TypeName ="Date")]
+        public DateTime BornDate { get; set; }
+        [Required]
+        public string City { get; set; }
     }
 }

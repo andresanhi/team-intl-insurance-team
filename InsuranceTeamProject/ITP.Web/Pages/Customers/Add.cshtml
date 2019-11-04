@@ -1,0 +1,79 @@
+﻿@page
+@model ITP.WebApp.Pages.Customers.AddModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h3>Add New Customer</h3>
+
+<div class="icon-preview col s6 m3 first-button button-item">
+    <a asp-page="./Index" class="btn-floating btn-medium waves-effect waves-light white">
+        <i class="material-icons dp48">arrow_back</i>
+    </a>
+    <span class="btn-text">Return</span>
+</div>
+
+<form method="post" class="button-final col s12">
+    <div class="row">
+        <div class="col s6">
+            <div class="input-field col s12">
+                <select asp-for="Customer.DocType">
+                    <option value="" disabled selected>Choose DNI Type</option>
+                    @foreach (var e in Model.DocTypes)
+                    {
+                        <option value="@e.Type">@e.Type</option>
+                    }
+                </select>
+                <label>Dni Type</label>
+            </div>
+        </div>
+        <div class="col s6">
+            <div class="input-field col s12">
+                <input id="docNum" type="number" class="validate" asp-for="Customer.DocNumber">
+                <label for="docNum">Doc Number</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <div class="input-field col s12">
+                <input id="name" type="text" class="validate" asp-for="Customer.Name">
+                <label for="name">Name</label>
+            </div>
+        </div>
+        <div class="col s6">
+            <div class="input-field">
+                <input id="last_name" type="text" class="validate" value="Prueba" asp-for="Customer.LastName">
+                <label for="last_name">Last Name</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <div class="input-field">
+                <input id="borndate" type="text" class="datepicker" asp-for="Customer.BornDate">
+                <label for="borndate" class="">Borndate</label>
+            </div>
+        </div>
+        <div class="col s6">
+            <div class="input-field col s12">
+                <select asp-for="Customer.City">
+                    <option value="" disabled selected>Choose City</option>
+                    @foreach (var c in Model.Cities)
+                    {
+                        <option value="@c.CityName">@c.CityName</option>
+                    }
+                </select>
+                <label>City</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-primary">
+            ADD CUSTOMER
+        </button>
+    </div>
+</form>
+<br />
+<br />
+<br />

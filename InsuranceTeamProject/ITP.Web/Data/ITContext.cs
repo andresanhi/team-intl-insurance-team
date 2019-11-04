@@ -13,7 +13,7 @@ namespace ITP.WebApp.Data
         public ITContext(DbContextOptions<ITContext> options)
             :base(options)
         {
-            //this.Database.EnsureCreated();
+            this.Database.EnsureCreated();
         }
     }
 }

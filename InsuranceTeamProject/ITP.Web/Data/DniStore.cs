@@ -24,7 +24,6 @@ namespace ITP.WebApp.Data
             });
 
         }
-
         internal List<DniType> GetDniTypes()
         {
             return DniTypes;
