@@ -9,7 +9,8 @@ namespace ITP.WebApp.Data
 {
     public class ITContext: DbContext
     {
-        public DbSet<Customer> Customer{ get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Vehicle> Vehicle { get; set; }
         public ITContext(DbContextOptions<ITContext> options)
             :base(options)
         {

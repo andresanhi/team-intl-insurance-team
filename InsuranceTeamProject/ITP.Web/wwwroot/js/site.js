@@ -8,3 +8,5 @@ $(document).ready(function () {
     $('.datepicker').datepicker();
     $('select').formSelect();
 });
+
+$("#elementID").pickadate("picker").set("select", "21/05/2017", { format: "dd/mm/yyyy" }).trigger("change");

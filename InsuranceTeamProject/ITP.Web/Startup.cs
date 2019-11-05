@@ -39,6 +39,7 @@ namespace ITP.WebApp
             services.AddScoped<DniStore>(); //Se registra contenedor de dependencias para tipo de Dni
             services.AddScoped<CityStore>(); //Se registra contenedor de dependencias para Ciudades
             services.AddScoped<CustomerStore>(); //Contenedor de dependencias para administrar Clientes
+            services.AddScoped<VehicleStore>(); //Contenedor de dependencias para administrar Vehículos
             services.AddDbContext<ITContext>(opt =>
             opt.UseSqlServer(Configuration.GetConnectionString("ITSql"),
             sqlServerOptionsAction: sqlOptions =>

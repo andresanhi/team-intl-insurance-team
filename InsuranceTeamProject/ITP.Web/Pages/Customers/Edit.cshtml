@@ -1,19 +1,22 @@
 ﻿@page
-@model ITP.WebApp.Pages.Customers.AddModel
+@model ITP.WebApp.Pages.Customers.EditModel
 @{
-    ViewData["Title"] = "Add Customer";
+    ViewData["Title"] = "Edit";
 }
 
-<h3>Add New Customer</h3>
+<h3>Edit</h3>
 
 <div class="icon-preview col s6 m3 first-button">
     <a asp-page="./Index" class="btn-floating btn-medium waves-effect waves-light white">
         <i class="material-icons dp48 button-item button-item-hover">arrow_back</i>
-        <span class="btn-text">Return</span>
     </a>
+    <span class="btn-text">Return</span>
 </div>
 
 <form method="post" class="button-final col s12">
+    <div class="row">
+        <input hidden asp-for="Customer.Id"/>
+    </div>
     <div class="row">
         <div class="col s6">
             <div class="input-field col s12">
@@ -50,7 +53,7 @@
     </div>
     <div class="row">
         <div class="col s6">
-            <div class="input-field s12">
+            <div class="input-field">
                 <input id="borndate" type="text" class="datepicker" asp-for="Customer.BornDate">
                 <label for="borndate" class="">Borndate</label>
             </div>
@@ -69,8 +72,8 @@
         </div>
     </div>
     <div class="row">
-        <button type="submit" class="btn btn-primary btn-team ">
-            ADD CUSTOMER
+        <button type="submit" class="btn btn-primary btn-team">
+            SAVE CHANGES
         </button>
     </div>
 </form>

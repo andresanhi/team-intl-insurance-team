@@ -18,6 +18,12 @@ namespace ITP.WebApp.Pages.Customers
             this.CustomerStore = customerStore;
             Customers = customerStore.GetCustomers();
         }
+
+        public IActionResult OnPostDelete(Guid id)
+        {
+            CustomerStore.DeleteCustomer(id);
+            return RedirectToPage();
+        }
         public void OnGet()
         {
 

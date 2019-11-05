@@ -26,5 +26,6 @@ namespace ITP.WebApp.Models
         public DateTime BornDate { get; set; }
         [Required]
         public string City { get; set; }
+        public List<Vehicle> Vehicles { get; set; }
     }
 }

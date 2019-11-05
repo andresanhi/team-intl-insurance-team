@@ -1,0 +1,85 @@
+﻿@page
+@model ITP.WebApp.Pages.Vehicles.AddModel
+@{
+    ViewData["Title"] = "Add Vehicle";
+}
+
+<h2>Customer Information</h2>
+
+<div class="icon-preview col s6 m3 first-button">
+    <a asp-page="../Customers/Index" class="btn-floating btn-medium waves-effect waves-light white">
+        <i class="material-icons dp48 button-item button-item-hover">arrow_back</i>
+        <span class="btn-text">Return</span>
+    </a>
+</div>
+
+<div class="row container-cards">
+    <div class="col s12 m4 card-content-size">
+        <h5 class="header">@Model.Customer.Name  @Model.Customer.LastName</h5>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img class="card-image-size" src="~/img/users_icon.png">
+            </div>
+            <div class="card-stacked card-content-size">
+                <div class="card-content s4">
+                    <input hidden asp-for="Customer.Id" />
+                    <div class="row">
+                        <div class="col s6">
+                            <label for="doc">Doc Number</label>
+                        </div>
+                        <div class="col s6">
+                            <label for="doc">@Model.Customer.DocNumber</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <label for="age">Age</label>
+                        </div>
+                        <div class="col s6">
+                            <label for="age">@Model.Age</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <label for="city">City</label>
+                        </div>
+                        <div class="col s6">
+                            <label for="city">@Model.Customer.City</label>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s6">
+        <h4>Add Vehicle To Customer</h4>
+        <form method="post">
+            <div class="input-field col s4">
+                <input id="bran" type="text" class="validate">
+                <label for="brand">Brand</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="model" type="text" class="validate">
+                <label for="model">Model</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="year" type="number" class="validate" min="2000" max="@Model.MaxYear">
+                <label for="year">Year</label>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-primary btn-team ">
+                    ADD VEHICLE
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<h4>Customer Vehicles</h4>
+
+<br />
+<br />
+<br />
