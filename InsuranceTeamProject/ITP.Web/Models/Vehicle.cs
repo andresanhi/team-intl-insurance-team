@@ -22,5 +22,6 @@ namespace ITP.WebApp.Models
         public string Model { get; set; }
         [Required]
         public int Year { get; set; }
+        public List<Insurance> Insurances { get; set; }
     }
 }

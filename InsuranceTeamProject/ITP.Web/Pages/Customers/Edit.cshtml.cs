@@ -37,9 +37,9 @@ namespace ITP.WebApp.Pages.Customers
         public IActionResult OnPostAsync()
         {
             //Edit
-            if (!ModelState.IsValid) //Hace la validacion inversa... si no es valido el modelo
+            if (!ModelState.IsValid)
             {
-                return Page(); //Permanece en la pagina
+                return Page();
             }
             Customer.BornDate = Convert.ToDateTime(BornDate);
             CustomerStore.EditCustomer(Customer);

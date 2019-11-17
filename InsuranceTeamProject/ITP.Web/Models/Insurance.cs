@@ -20,9 +20,9 @@ namespace ITP.WebApp.Models
         [Required]
         public Guid Id { get; set; }
         [Required]
-        public Guid IdCustomer { get; set; }
+        public Guid CustomerId { get; set; }
         [Required]
-        public Guid IdVehicle { get; set; }
+        public Guid VehicleId { get; set; }
         public string City { get; set; }
         public double Baseprice{ get; set; }
         public double IncreaseByAge { get; set; }

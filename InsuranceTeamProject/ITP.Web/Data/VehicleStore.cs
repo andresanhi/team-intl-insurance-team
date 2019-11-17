@@ -1,4 +1,5 @@
 ﻿using ITP.WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace ITP.WebApp.Data
 
         public List<Vehicle> GetVehiclesByCustomer(Guid idCustomer)
         {
-            return Context.Vehicle.Where(x => x.CustomerId == idCustomer).ToList();
+            return Context.Vehicle
+                .Where(x => x.CustomerId == idCustomer)
+                .ToList();
         }
 
         public Vehicle GetVehiclesById(Guid Id)

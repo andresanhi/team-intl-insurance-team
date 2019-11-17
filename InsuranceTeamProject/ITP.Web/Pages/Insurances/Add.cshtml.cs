@@ -13,7 +13,13 @@ namespace ITP.WebApp.Pages.Insurances
     public class AddModel : PageModel
     {
         [BindProperty]
-        public Insurance Insurance { get; set; } = new Insurance();
+        public Insurance Insurance { get; set; }
+        [BindProperty]
+        public string City { get; set; }
+        [BindProperty]
+        public Guid idVehicle { get; set; }
+        [BindProperty]
+        public Guid idCustomer { get; set; }
         public Vehicle Vehicle{ get; set; }
         public Customer Customer { get; set; }
         public VehicleStore VehicleStore{ get; set; }
@@ -27,15 +33,16 @@ namespace ITP.WebApp.Pages.Insurances
             CustomerStore = customerStore;
             InsuranceStore = insuranceStore;
             InsurancesRules = insurancesRules;
+            
         }
         public void OnGet(Guid vehicleid)
         {
             Vehicle = VehicleStore.GetVehiclesById(vehicleid);
             Customer = CustomerStore.GetCustomerById(Vehicle.CustomerId);
-            Insurance.IdCustomer = Customer.Id;
-            Insurance.IdVehicle = Vehicle.Id;
-            Insurance.City = Customer.City;
-            Insurance = InsurancesRules.GetPrice(Insurance);
+            idCustomer = Customer.Id;
+            idVehicle = Vehicle.Id;
+            City = Customer.City;
+            Insurance = InsurancesRules.GetPrice(idCustomer, idVehicle);
         }
 
 
@@ -45,10 +52,7 @@ namespace ITP.WebApp.Pages.Insurances
             {
                 return Page();
             }
-            Insurance.IdCustomer = Customer.Id;
-            Insurance.IdVehicle = Vehicle.Id;
-            Insurance.City = Customer.City;
-            //InsuranceStore.AddInsurance(Insurance);
+            InsuranceStore.AddInsurance(Insurance);
             return RedirectToPage("../Customers/Index");
         }
     }

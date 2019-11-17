@@ -5,10 +5,6 @@
 }
 
 <h1>Add Insurance</h1>
-<input value="@Model.Vehicle.Id" />
-<input value="@Model.Customer.Id" />
-<input value="@Model.Insurance.Id" />
-
 <h3>Insurance Information</h3>
 <div class="row ins-container">
     <div class="col">
@@ -31,30 +27,47 @@
         <img class="ins-img" src="~/img/kia-front.png" alt="KIA SPORTAGE" />
     </div>
 </div>
+<form method="post">
+    <input hidden asp-for="Insurance.VehicleId" />
+    <input hidden asp-for="Insurance.CustomerId" />
+    <input hidden asp-for="Insurance.Id" />
+    <input hidden asp-for="Insurance.City" />
     <h3>Insurance Price</h3>
     <div class="row">
         <table class="responsive-table striped s6 ins-table">
             <tr>
                 <td class="">Base Price</td>
-                <td>@Model.Insurance.Baseprice.ToString("C")</td>
+                <td>
+                    @Model.Insurance.Baseprice.ToString("C")
+                    <input hidden asp-for="Insurance.Baseprice" />
+                </td>
             </tr>
             <tr>
                 <td>Increase By Age</td>
-                <td>@Model.Insurance.IncreaseByAge.ToString("C")</td>
+                <td>
+                    @Model.Insurance.IncreaseByAge.ToString("C")
+                    <input hidden asp-for="Insurance.IncreaseByAge" />
+                </td>
             </tr>
             <tr>
                 <td>Increase By City</td>
-                <td>@Model.Insurance.IncreaseByCity.ToString("C")</td>
+                <td>
+                    @Model.Insurance.IncreaseByCity.ToString("C")
+                    <input hidden asp-for="Insurance.IncreaseByCity" />
+                </td>
             </tr>
             <tr>
                 <td>Increase By Car</td>
-                <td>@Model.Insurance.IncreaseByCar.ToString("C")</td>
+                <td>
+                    @Model.Insurance.IncreaseByCar.ToString("C")
+                    <input hidden asp-for="Insurance.IncreaseByCar"/>
+                </td>
             </tr>
             <tr>
                 <td>Total Price</td>
                 <td>
                     <strong class="total-ins">@Model.Insurance.Total.ToString("C")</strong>
-                    <input asp-for="Insurance.Total" value="@Model.Insurance.Total.ToString("C")" />
+                    <input hidden asp-for="Insurance.Total"/>
                 </td>
             </tr>
             <tr>
@@ -66,15 +79,14 @@
                     </a>
                 </td>
                 <td>
-                    <form method="post">
-                        <button type="submit"
-                                class="btn btn-team">
-                            ACCEPT
-                        </button>
-                    </form>
+                    <button type="submit"
+                            class="btn btn-team">
+                        ACCEPT
+                    </button>
                 </td>
             </tr>
         </table>
     </div>
+</form>
 <br />
 <br />
