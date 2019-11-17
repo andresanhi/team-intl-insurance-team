@@ -18,6 +18,8 @@ namespace ITP.WebApp.Pages.Customers
         public CityStore CityStore { get; set; }
         public List<DniType> DocTypes { get; set; }
         public List<City> Cities { get; set; }
+        [BindProperty]
+        public string BornDate { get; set; }
         public EditModel(CustomerStore customerStore, DniStore dniStore, CityStore cityStore)
         {
             this.CustomerStore = customerStore;
@@ -29,6 +31,7 @@ namespace ITP.WebApp.Pages.Customers
         public void OnGet(Guid id)
         {
             Customer = CustomerStore.GetCustomerById(id);
+            BornDate = Customer.BornDate.ToString("dd/MM/yyyy");
         }
 
         public IActionResult OnPostAsync()
@@ -38,6 +41,7 @@ namespace ITP.WebApp.Pages.Customers
             {
                 return Page(); //Permanece en la pagina
             }
+            Customer.BornDate = Convert.ToDateTime(BornDate);
             CustomerStore.EditCustomer(Customer);
             return RedirectToPage("./Index");
         }

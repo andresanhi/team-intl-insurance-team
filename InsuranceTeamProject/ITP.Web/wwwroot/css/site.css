@@ -180,15 +180,100 @@ div.button-item a i {
     color: #62e52c !important;
     font-size: 1.5em;
 }
-.card-image-size{
+
+.datepicker-date-display {
+    background-color: #253746 !important;
+    color: #62e52c !important;
+}
+.year-text {
+    color: #62e52c !important;
+}
+
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+    color: #62e52c;
+}
+
+.select-month input {
+    width: 80px !important;
+}
+
+th{
+    text-align: center !important;
+}
+
+.a-table {
+    margin-left: 20%;
+}
+
+.btn-table {
+    margin-left: 30%;
+}
+
+.text-muted{
+    text-align: center;
+}
+
+.no-data div h5{
+    text-align: center;
+}
+.btn-center{
+    margin-left: 40%;
+}
+.user-nodata {
+    margin-left: 42%;
+    width: 10em !important;
+    height: 10em !important;
+}
+/*#endregion */
+/*#region Cards */
+.card-image-size {
     width: 150px;
     height: 150px;
 }
-.card-content-size{
-    width:27em !important;
+
+.card-content-size {
+    width: 27em !important;
     margin-right: 5%
 }
-.container-cards{
-   
+
+.container-cards {
+    float: left;
+    margin-bottom: 5% !important;
+    margin-left: 0px !important;
+}
+
+.container-user-card {
+    float: left;
+    margin-bottom: 5% !important;
+    margin-left: 0px !important;
+}
+
+.card-vehicle {
+    width: 14rem;
+    height: auto;
+}
+
+.row-data {
+    margin-bottom: 0px !important;
+    margin-left: 5% !important;
+}
+
+.vehicle-brand {
+    text-transform: uppercase;
+}
+.btn-ins{
+    text-align:center;
+    margin-top:5% !important;
+}
+
+.vehicle-card {
+}
+
+.CardProfile{
+    margin-bottom:35% !important;
+    clear: both;
+}
+.add-vehicle{
+    margin-left:5%;
 }
 /*#endregion */

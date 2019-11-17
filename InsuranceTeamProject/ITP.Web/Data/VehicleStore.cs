@@ -19,5 +19,28 @@ namespace ITP.WebApp.Data
         {
             return Context.Vehicle.Where(x => x.CustomerId == idCustomer).ToList();
         }
+
+        public Vehicle GetVehiclesById(Guid Id)
+        {
+            return Context.Vehicle.FirstOrDefault(x => x.Id == Id);
+        }
+
+        internal void AddVehicle(Vehicle vehicle)
+        {
+            Context.Vehicle.Add(vehicle);
+            Context.SaveChanges();
+        }
+
+        internal void DeleteVehicle(Guid id)
+        {
+            Vehicle currentVehicle = GetVehiclesById(id);
+            Context.Vehicle.Remove(currentVehicle);
+            Context.SaveChanges();
+        }
+
+        internal List<Vehicle> GetVehicles()
+        {
+            return Context.Vehicle.ToList();
+        }
     }
 }

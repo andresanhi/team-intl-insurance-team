@@ -7,68 +7,97 @@
 
 <h3>Customers</h3>
 
-<div class="icon-preview col s6 m3 first-button">
-    <a asp-page="Add" class="btn-floating btn-medium waves-effect waves-light white">
-        <i class="material-icons dp48 button-item button-item-hover">add</i>
-    </a>
-    <a asp-page="Add">
-        <span class="btn-text">Add New Customer</span>
-    </a>
-</div>
+@if (Model.Customers.Count == 0)
+{
+    <div class="row no-data">
+        <div class="col s12">
+            <img src="~/img/user-nodata.png" class="user-nodata"/>
+            <h5 class="text-muted">
+                No Customers
+            </h5>
+            <p class="text-muted">
+                You do not have any customers yet. Add a new customer by clicking the <strong>Add New Customer</strong> button below.
+            </p>
+            <a asp-page="Add" 
+               class="btn btn-lg btn-team btn-center">Add New Customer</a>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+}
+else
+{
+    <div class="icon-preview col s6 m3 first-button">
+        <a asp-page="Add" class="btn-floating btn-medium waves-effect waves-light white">
+            <i class="material-icons dp48 button-item button-item-hover">add</i>
+        </a>
+        <a asp-page="Add">
+            <span class="btn-text">Add New Customer</span>
+        </a>
+    </div>
 
-<form method="POST">
-    <table class="table responsive-table">
-        <thead class="thead-dark my-thead">
-            <tr>
-                <th>DocNumer</th>
-                <th>DocType</th>
-                <th>Name</th>
-                <th>Last Name</th>
-                <th>Born Date</th>
-                <th>City</th>
-                <th>Ver</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Customers)
-            {
-            <tr>
-                <td>@item.DocNumber</td>
-                <td>@item.DocType</td>
-                <td>@item.Name</td>
-                <td>@item.LastName</td>
-                <td>@item.BornDate.ToString("dd/MM/yyyy")</td>
-                <td>@item.City</td>
-                <td>
-                    <a asp-page="../Vehicles/Add"
-                       asp-route-customerid="@item.Id"
-                       class="btn-floating btn-medium waves-effect waves-light white">
-                        <i class="medium material-icons button-item button-item-2">remove_red_eye</i>
-                    </a>
-
-                </td>
-                <td>
-                    <a asp-page="Edit"
-                       asp-route-id="@item.Id"
-                       class="btn-floating btn-medium waves-effect waves-light white">
-                        <i class="medium material-icons button-item button-item-2">edit</i>
-                    </a>
-                </td>
-                <td>
-                    <button type="submit"
-                            class="btn-floating btn-medium waves-effect waves-light white"
-                            asp-page-handler="delete"
-                            asp-route-id="@item.Id">
-                        <i class="medium material-icons button-item button-item-2">delete</i>
-                    </button>
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
-</form>
-<br />
-<br />
-<br />
+    <form method="POST">
+        <table class="table responsive-table">
+            <thead class="thead-dark my-thead">
+                <tr>
+                    <th>DocNumer</th>
+                    <th>DocType</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Born Date</th>
+                    <th>City</th>
+                    <th>Add Car</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Customers)
+                {
+                    <tr>
+                        <td>@item.DocNumber</td>
+                        <td>@item.DocType</td>
+                        <td>@item.Name</td>
+                        <td>@item.LastName</td>
+                        <td>@item.BornDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.City</td>
+                        <td>
+                            <a asp-page="../Vehicles/Add"
+                               asp-route-customerid="@item.Id"
+                               class="btn-floating btn-medium waves-effect waves-light white a-table">
+                                <i class="medium material-icons button-item button-item-2">add</i>
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-page="View"
+                               asp-route-customerid="@item.Id"
+                               class="btn-floating btn-medium waves-effect waves-light white a-table">
+                                <i class="medium material-icons button-item button-item-2">remove_red_eye</i>
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-page="Edit"
+                               asp-route-id="@item.Id"
+                               class="btn-floating btn-medium waves-effect waves-light white a-table">
+                                <i class="medium material-icons button-item button-item-2">edit</i>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="submit"
+                                    class="btn-floating btn-medium waves-effect waves-light white btn-table"
+                                    asp-page-handler="delete"
+                                    asp-route-id="@item.Id">
+                                <i class="medium material-icons button-item button-item-2">delete</i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+    <br />
+    <br />
+    <br />
+}

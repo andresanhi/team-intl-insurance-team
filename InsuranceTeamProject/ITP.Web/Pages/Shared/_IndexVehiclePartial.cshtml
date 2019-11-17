@@ -1,0 +1,74 @@
+﻿@model List<ITP.WebApp.Models.Vehicle>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<h5>Customers Vehicles</h5>
+<hr />
+
+<div class="row container-cards">
+    @foreach (var item in Model?? new List<WebApp.Models.Vehicle>())
+    {
+        <div class="col s12 m3 vehicle-card">
+            <div class="card-vehicle">
+                <div class="card-image">
+                    <img class="card-vehicle" src="~/img/vehicle.jpg">
+                </div>
+                <input hidden value="@item.Id" />
+                <div class="row row-data">
+                    <div class="col s4">
+                        <span for="brand">Brand:</span>
+                    </div>
+                    <div class="col s6">
+                        <span vehicle-brand>@item.Brand</span>
+                    </div>
+                </div>
+                <div class="row row-data">
+                    <div class="col s4">
+                        <span for="model">Model:</span>
+                    </div>
+                    <div class="col s6">
+                        <span>@item.Model</span>
+                    </div>
+                </div>
+                <div class="row row-data">
+                    <div class="col s4">
+                        <span for="year">Year:</span>
+                    </div>
+                    <div class="col s6">
+                        <span>@item.Year</span>
+                    </div>
+                </div>
+                <div class="row row-data">
+                    <div class="col s4">
+                        <span for="year">Insurance:</span>
+                    </div>
+                    <div class="col s6">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row btn-ins">
+                    <a class="btn btn-team"
+                       asp-page="../Insurances/Add"
+                       asp-route-vehicleid="@item.Id">
+                        ADD INSURANCE
+                    </a>
+                </div>
+                <form method="post">
+                    <div class="row">
+                        <button type="submit"
+                                class="btn"
+                                asp-page="../Insurances/Add"
+                                asp-route-vehicleid="@item.Id"
+                                >
+                            DELETE
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+<br />
+<br />
+<br />

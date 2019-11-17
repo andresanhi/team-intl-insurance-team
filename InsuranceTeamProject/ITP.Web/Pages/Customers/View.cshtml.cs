@@ -6,45 +6,52 @@ using ITP.WebApp.Data;
 using ITP.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace ITP.WebApp.Pages.Vehicles
+namespace ITP.WebApp.Pages.Customers
 {
-    public class AddModel : PageModel
+    public class ViewModel : PageModel
     {
-        public CustomerStore CustomerStore { get; set; }
-        public Customer Customer { get; set; }
         public VehicleStore VehicleStore { get; set; }
+        public CustomerStore CustomerStore { get; set; }
         public List<Vehicle> Vehicles { get; set; }
         [BindProperty]
         public Vehicle Vehicle { get; set; }
+        [BindProperty]
+        public Guid CustomerId { get; set; }
+        [BindProperty]
+        public Customer Customer { get; set; }
         public int Age { get; set; }
         public int MaxYear { get; set; }
-        public Guid CustomerId { get; set; }
-        public AddModel(CustomerStore customerStore, VehicleStore vehicleStore)
+        public ViewModel(VehicleStore vehicleStore, CustomerStore customerStore)
         {
             VehicleStore = vehicleStore;
             CustomerStore = customerStore;
-            
         }
         public void OnGet(Guid customerid)
         {
             CustomerId = customerid;
-            Customer = CustomerStore.GetCustomerById(CustomerId);
+            Vehicles = VehicleStore.GetVehiclesByCustomer(customerid);
+            Customer = CustomerStore.GetCustomerById(customerid);
             Age = DateTime.Today.AddTicks(-Customer.BornDate.Ticks).Year - 1;
             MaxYear = DateTime.Today.Year + 1;
-            Vehicles = VehicleStore.GetVehiclesByCustomer(CustomerId);
         }
-
+        public IActionResult Delete(Guid id)
+        {
+            Vehicle = VehicleStore.GetVehiclesById(id);
+            //VehicleStore.DeleteVehicle(id);
+            CustomerId = Vehicle.CustomerId;
+            Vehicles = VehicleStore.GetVehiclesByCustomer(CustomerId);
+            return RedirectToPage();
+        }
         public IActionResult OnPostAsync()
         {
             if (!ModelState.IsValid) //Hace la validacion inversa... si no es valido el modelo
             {
                 return Page(); //Permanece en la pagina
             }
-           
+
             VehicleStore.AddVehicle(Vehicle);
-            return RedirectToPage("../Customers/Index");
+            return Page();
         }
     }
 }

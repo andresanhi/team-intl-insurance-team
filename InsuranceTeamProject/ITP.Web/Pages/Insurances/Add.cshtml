@@ -1,0 +1,67 @@
+﻿@page
+@model ITP.WebApp.Pages.Insurances.AddModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add Insurance</h1>
+<input value="@Model.Vehicle.Id" />
+<input value="@Model.Customer.Id" />
+<input value="@Model.Insurance.Id" />
+
+<h3>Insurance Information</h3>
+<div class="row container-cards">
+    <div>
+        <h5>Customer Information</h5>
+        <p>@Model.Customer.Name</p>
+    </div>
+    <div>
+        <h5>Car Information</h5>
+    </div>
+    <div>
+        <img src="#" alt="Alternate Text" />
+    </div>
+</div>
+<h3>Insurance Price</h3>
+<div class="row">
+    <table>
+        <tr>
+            <td>Base Price</td>
+            <td>Baseprice</td>
+        </tr>
+        <tr>
+            <td>Increase By Age</td>
+            <td>IncreaseByAge</td>
+        </tr>
+        <tr>
+            <td>Increase By City</td>
+            <td>IncreaseByCity</td>
+        </tr>
+        <tr>
+            <td>Increase By Car</td>
+            <td>IncreaseByCar</td>
+        </tr>
+        <tr>
+            <td>Total Price</td>
+            <td><strong>Total</strong></td>
+        </tr>
+        <tr>
+            <td>
+                <a class="btn"
+                   asp-page="../Customers/View"
+                   asp-route-customerid="@Model.Customer.Id">
+                    CANCEL
+                </a>
+            </td>
+            <td>
+                <form method="post">
+                    <button type="submit" class="class="btn btn-primary btn-team"">
+                        ACCEPT
+                    </button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+<br />

@@ -17,7 +17,7 @@ namespace ITP.WebApp.Data
 
         public List<Customer> GetCustomers()
         {
-            return Context.Customer.ToList();
+            return Context.Customer.OrderBy(x => x.Name).ToList();
         }
         internal void AddCustomer(Customer customer)
         {

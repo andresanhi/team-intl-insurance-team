@@ -1,10 +1,11 @@
 ﻿@page
-@model ITP.WebApp.Pages.Vehicles.AddModel
+@model ITP.WebApp.Pages.Customers.ViewModel
 @{
-    ViewData["Title"] = "Add Vehicle";
+    ViewData["Title"] = "View";
 }
 
-<h2>Add Vehicle</h2>
+<h4>Customer View</h4>
+<input value="@Model.CustomerId" />
 
 <div class="icon-preview col s6 m3 first-button">
     <a asp-page="../Customers/Index" class="btn-floating btn-medium waves-effect waves-light white">
@@ -13,8 +14,6 @@
     </a>
 </div>
 
-<input hidden value="@Model.CustomerId" />
-<div class="row container-user-card">
     <div class="col s12 m4 card-content-size">
         <h5 class="header">@Model.Customer.Name  @Model.Customer.LastName</h5>
         <div class="card horizontal">
@@ -48,39 +47,13 @@
                             <label for="city">@Model.Customer.City</label>
                         </div>
                     </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col s6">
-        <h4>Add Vehicle To Customer</h4>
-        <form method="post">
-            <input hidden asp-for="Vehicle.CustomerId" value="@Model.CustomerId" />
-            <div class="input-field col s4">
-                <input id="brand" type="text" class="validate" asp-for="Vehicle.Brand">
-                <label for="brand">Brand</label>
-            </div>
-            <div class="input-field col s4">
-                <input id="model" type="text" class="validate" asp-for="Vehicle.Model">
-                <label for="model">Model</label>
-            </div>
-            <div class="input-field col s4">
-                <input id="year" type="number" class="validate" min="2000" max="@Model.MaxYear" asp-for="Vehicle.Year">
-                <label for="year">Year</label>
-            </div>
-            <div class="row">
-                <button type="submit" class="btn btn-primary btn-team" data-ajax-update="#VehicleList">
-                    ADD VEHICLE
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
 <hr />
+<br />
 
-<br />
-<br />
-<br />
+<div>
+    <partial name="_IndexVehiclePartial" model="Model.Vehicles" />
+</div>
