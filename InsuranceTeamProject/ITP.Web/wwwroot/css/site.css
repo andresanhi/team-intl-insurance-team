@@ -224,6 +224,22 @@ th{
     width: 10em !important;
     height: 10em !important;
 }
+.ins-container {
+    background-color: slategray;
+    border-radius: 10px;
+}
+.ins-table {
+    width: 50% !important;
+}
+.ins-img{
+    width: 30em !important;
+}
+.ins-container span {
+    color: white;
+}
+.ins-title{
+    color:white;
+}
 /*#endregion */
 /*#region Cards */
 .card-image-size {
@@ -261,6 +277,12 @@ th{
 .vehicle-brand {
     text-transform: uppercase;
 }
+
+.btn-car{
+    margin-left: 15% !important;
+    width:70%;
+    margin-bottom: 5% !important;
+}
 .btn-ins{
     text-align:center;
     margin-top:5% !important;
@@ -275,5 +297,9 @@ th{
 }
 .add-vehicle{
     margin-left:5%;
+}
+.btn-row{
+    margin-top: 5% !important;
+    margin-bottom:5% !important: 
 }
 /*#endregion */

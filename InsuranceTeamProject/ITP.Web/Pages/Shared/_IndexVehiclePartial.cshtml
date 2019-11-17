@@ -47,24 +47,23 @@
                         <span>0</span>
                     </div>
                 </div>
-                <div class="row btn-ins">
-                    <a class="btn btn-team"
+                <div class="row btn-row">
+                    <a class="btn btn-team btn-car"
                        asp-page="../Insurances/Add"
                        asp-route-vehicleid="@item.Id">
                         ADD INSURANCE
                     </a>
+                    <form method="post">
+                        <div class="">
+                            <button type="submit"
+                                    class="btn btn-team btn-car"
+                                    asp-page-handler="delete"
+                                    asp-route-vehicleid="@item.Id">
+                                DELETE
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <form method="post">
-                    <div class="row">
-                        <button type="submit"
-                                class="btn"
-                                asp-page="../Insurances/Add"
-                                asp-route-vehicleid="@item.Id"
-                                >
-                            DELETE
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     }

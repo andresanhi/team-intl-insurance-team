@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ITP.WebApp.BusinessLogic;
 using ITP.WebApp.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,7 @@ namespace ITP.WebApp
             services.AddScoped<CustomerStore>(); //Contenedor de dependencias para administrar Clientes
             services.AddScoped<VehicleStore>(); //Contenedor de dependencias para administrar Vehículos
             services.AddScoped<InsuranceStore>();//Se inserta dependencia de Seguros
+            services.AddScoped<InsurancesRules>();//Se inserta para lógica de negocio
             services.AddDbContext<ITContext>(opt =>
             opt.UseSqlServer(Configuration.GetConnectionString("ITSql"),
             sqlServerOptionsAction: sqlOptions =>

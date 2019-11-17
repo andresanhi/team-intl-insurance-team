@@ -18,7 +18,7 @@ namespace ITP.WebApp.BusinessLogic
             CustomerStore = customerStore;
             InsuranceStore = insuranceStore;
         }
-        public Insurance CalculatePrice(Insurance insurance)
+        public Insurance GetPrice(Insurance insurance)
         {
             double IncreaseByAge1 = 0.30;
             double IncreaseByAge2 = 0.10;

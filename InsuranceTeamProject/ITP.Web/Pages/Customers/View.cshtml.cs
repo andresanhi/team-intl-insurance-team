@@ -53,5 +53,11 @@ namespace ITP.WebApp.Pages.Customers
             VehicleStore.AddVehicle(Vehicle);
             return Page();
         }
+
+        public IActionResult OnPostDelete(Guid vehicleid)
+        {
+            VehicleStore.DeleteVehicle(vehicleid);
+            return RedirectToPage("../Customers/Index");
+        }
     }
 }

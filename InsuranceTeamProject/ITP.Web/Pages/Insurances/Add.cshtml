@@ -10,58 +10,71 @@
 <input value="@Model.Insurance.Id" />
 
 <h3>Insurance Information</h3>
-<div class="row container-cards">
-    <div>
-        <h5>Customer Information</h5>
-        <p>@Model.Customer.Name</p>
+<div class="row ins-container">
+    <div class="col">
+        <h5 class="ins-title">Customer Information</h5>
+        <div class="row col s12">
+            <div><span>@Model.Customer.Name @Model.Customer.LastName</span></div>
+            <div><span>@Model.Customer.DocNumber</span></div>
+            <div><span>@Model.Customer.City</span></div>
+        </div>
     </div>
-    <div>
-        <h5>Car Information</h5>
+    <div class="col">
+        <h5 class="ins-title">Car Information</h5>
+        <div class="row col s12">
+            <div><span>@Model.Vehicle.Brand</span></div>
+            <div><span>@Model.Vehicle.Model</span></div>
+            <div><span>@Model.Vehicle.Year</span></div>
+        </div>
     </div>
-    <div>
-        <img src="#" alt="Alternate Text" />
+    <div class="col s2">
+        <img class="ins-img" src="~/img/kia-front.png" alt="KIA SPORTAGE" />
     </div>
 </div>
-<h3>Insurance Price</h3>
-<div class="row">
-    <table>
-        <tr>
-            <td>Base Price</td>
-            <td>Baseprice</td>
-        </tr>
-        <tr>
-            <td>Increase By Age</td>
-            <td>IncreaseByAge</td>
-        </tr>
-        <tr>
-            <td>Increase By City</td>
-            <td>IncreaseByCity</td>
-        </tr>
-        <tr>
-            <td>Increase By Car</td>
-            <td>IncreaseByCar</td>
-        </tr>
-        <tr>
-            <td>Total Price</td>
-            <td><strong>Total</strong></td>
-        </tr>
-        <tr>
-            <td>
-                <a class="btn"
-                   asp-page="../Customers/View"
-                   asp-route-customerid="@Model.Customer.Id">
-                    CANCEL
-                </a>
-            </td>
-            <td>
-                <form method="post">
-                    <button type="submit" class="class="btn btn-primary btn-team"">
-                        ACCEPT
-                    </button>
-                </form>
-            </td>
-        </tr>
-    </table>
-</div>
+    <h3>Insurance Price</h3>
+    <div class="row">
+        <table class="responsive-table striped s6 ins-table">
+            <tr>
+                <td class="">Base Price</td>
+                <td>@Model.Insurance.Baseprice.ToString("C")</td>
+            </tr>
+            <tr>
+                <td>Increase By Age</td>
+                <td>@Model.Insurance.IncreaseByAge.ToString("C")</td>
+            </tr>
+            <tr>
+                <td>Increase By City</td>
+                <td>@Model.Insurance.IncreaseByCity.ToString("C")</td>
+            </tr>
+            <tr>
+                <td>Increase By Car</td>
+                <td>@Model.Insurance.IncreaseByCar.ToString("C")</td>
+            </tr>
+            <tr>
+                <td>Total Price</td>
+                <td>
+                    <strong class="total-ins">@Model.Insurance.Total.ToString("C")</strong>
+                    <input asp-for="Insurance.Total" value="@Model.Insurance.Total.ToString("C")" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="btn btn-team"
+                       asp-page="../Customers/View"
+                       asp-route-customerid="@Model.Customer.Id">
+                        CANCEL
+                    </a>
+                </td>
+                <td>
+                    <form method="post">
+                        <button type="submit"
+                                class="btn btn-team">
+                            ACCEPT
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
 <br />
 <br />
