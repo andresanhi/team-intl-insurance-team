@@ -19,5 +19,17 @@ namespace ITP.WebApp.Data
             Context.Insurance.Add(insurance);
             Context.SaveChanges();
         }
+
+        internal void DeteleInsurance(Guid id)
+        {
+            Insurance cInsurance = Context.Insurance.FirstOrDefault(x => x.Id == id);
+            Context.Insurance.Remove(cInsurance);
+            Context.SaveChanges();  
+        }
+
+        internal List<Insurance> GetInsurances()
+        {
+            return Context.Insurance.ToList();
+        }
     }
 }

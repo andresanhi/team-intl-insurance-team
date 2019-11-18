@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col s6">
             <div class="input-field col s12">
-                <select asp-for="Customer.DocType">
+                <select asp-for="Customer.DocType" required>
                     <option value="" disabled selected>Choose DNI Type</option>
                     @foreach (var e in Model.DocTypes)
                     {
@@ -29,7 +29,7 @@
         </div>
         <div class="col s6">
             <div class="input-field col s12">
-                <input id="docNum" type="number" class="validate" asp-for="Customer.DocNumber">
+                <input id="docNum" type="text" class="validate" asp-for="Customer.DocNumber">
                 <label for="docNum">Doc Number</label>
             </div>
         </div>

@@ -17,7 +17,7 @@ namespace ITP.WebApp.Models
         public Guid Id { get; set; }
         public string DocType { get; set; }
         [Required]
-        public int DocNumber { get; set; }
+        public string DocNumber { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

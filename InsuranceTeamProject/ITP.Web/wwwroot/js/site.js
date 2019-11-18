@@ -22,5 +22,20 @@ function anios(endyear) {
     }
     return arr;
 }
+
+$("#txtsearch").on("keyup", function () {
+    alert("Prueba ok");
+    /*var txtenter = $(this).val();
+    $("table tr").each(function (results) {
+        if (results !== 0) {
+            var id = $(this).find("td:nth-child(2)").text();
+            if (id.indexOf(txtenter) == 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
+                $(this).hide();
+            }
+            else {
+                $(this).show();
+            }
+        });*/
+});
 //$("#elementID").pickadate("picker").set("select", "21/05/2017", { format: "dd/mm/yyyy" }).trigger("change");
 

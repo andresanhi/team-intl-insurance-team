@@ -45,16 +45,26 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+    background-color: #253746;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    line-height: 5em; /* Vertically center the text there */
 }
 
+.footer .container-footer {
+    background-color: #253746;
+    width: 100%;
+    position: absolute;
+    color: white;
+}
+
+.container-footer{
+    width: 100%;
+}
 /*#region Navbar */
 .navbar {
     background-color: #253746 !important;
@@ -219,6 +229,9 @@ th{
 .btn-center{
     margin-left: 40%;
 }
+.btn-center-vh {
+    margin-left: 45%;
+}
 .user-nodata {
     margin-left: 42%;
     width: 10em !important;
@@ -248,10 +261,22 @@ th{
 }
 
 .card-content-size {
-    width: 27em !important;
-    margin-right: 5%
+    width: 70% !important;
+    margin-right: 5%;
+    margin-left: 20%;
+
+}
+.card-stacked {
+    background-color: #253746;
 }
 
+.card-stacked span{
+    color:white;
+    font-size:1.5rem;
+}
+.card.horizontal .card-image img {
+    height: 100% !important;
+}
 .container-cards {
     float: left;
     margin-bottom: 5% !important;
@@ -264,6 +289,9 @@ th{
     margin-left: 0px !important;
 }
 
+.card.horizontal{
+    height: 15rem !important;
+}
 .card-vehicle {
     width: 14rem;
     height: auto;
@@ -271,7 +299,7 @@ th{
 
 .row-data {
     margin-bottom: 0px !important;
-    margin-left: 5% !important;
+    margin-left: 1% !important;
 }
 
 .vehicle-brand {
@@ -301,5 +329,14 @@ th{
 .btn-row{
     margin-top: 5% !important;
     margin-bottom:5% !important; 
+}
+.container-sales{
+    width: 120% !important;
+    margin-left: -10% !important;
+}
+.warning-age{
+    color: darkred;
+    text-align: center;
+    font-weight: bold;
 }
 /*#endregion */

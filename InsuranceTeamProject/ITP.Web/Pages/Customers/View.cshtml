@@ -14,44 +14,44 @@
     </a>
 </div>
 
-    <div class="col s12 m4 card-content-size">
+    <div class="col card-content-size">
         <h5 class="header">@Model.Customer.Name  @Model.Customer.LastName</h5>
         <div class="card horizontal">
             <div class="card-image">
                 <img class="card-image-size" src="~/img/users_icon.png">
             </div>
-            <div class="card-stacked card-content-size">
+            <div class="card-stacked">
                 <div class="card-content s4">
                     <input hidden asp-for="Customer.Id" />
                     <div class="row row-data">
-                        <div class="col s7">
-                            <label for="doc">Doc Number</label>
+                        <div class="col s6">
+                            <span for="doc">Doc Number</span>
                         </div>
-                        <div class="col s5">
-                            <label for="doc">@Model.Customer.DocNumber</label>
-                        </div>
-                    </div>
-                    <div class="row row-data">
-                        <div class="col s7">
-                            <label for="age">Age</label>
-                        </div>
-                        <div class="col s5">
-                            <label for="age">@Model.Age</label>
+                        <div class="col s4">
+                            <span for="doc">@Model.Customer.DocNumber</span>
                         </div>
                     </div>
                     <div class="row row-data">
-                        <div class="col s7">
-                            <label for="city">City</label>
+                        <div class="col s6">
+                            <span for="age">Age</span>
                         </div>
-                        <div class="col s5">
-                            <label for="city">@Model.Customer.City</label>
+                        <div class="col s4">
+                            <span for="age">@Model.Age</span>
                         </div>
                     </div>
+                    <div class="row row-data">
+                        <div class="col s6">
+                            <span for="city">City</span>
+                        </div>
+                        <div class="col s4">
+                            <span for="city">@Model.Customer.City</span>
+                        </div>
+                    </div>
+                    <br />
                 </div>
             </div>
         </div>
     </div>
-<hr />
 <br />
 
 <div>

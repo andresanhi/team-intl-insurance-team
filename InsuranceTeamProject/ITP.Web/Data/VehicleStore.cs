@@ -20,6 +20,7 @@ namespace ITP.WebApp.Data
         {
             return Context.Vehicle
                 .Where(x => x.CustomerId == idCustomer)
+                .Include(x => x.Insurances)
                 .ToList();
         }
 

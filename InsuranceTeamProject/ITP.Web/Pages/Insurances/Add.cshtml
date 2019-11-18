@@ -78,12 +78,24 @@
                         CANCEL
                     </a>
                 </td>
-                <td>
-                    <button type="submit"
-                            class="btn btn-team">
-                        ACCEPT
-                    </button>
-                </td>
+                @if (Model.Age < 16)
+                {
+                    <td>
+                        <span class="warning-age">
+                            Por su edad no es <br />
+                            posible adquirir un seguro
+                        </span>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <button type="submit"
+                                class="btn btn-team">
+                            ACCEPT
+                        </button>
+                    </td>
+                }
             </tr>
         </table>
     </div>

@@ -6,69 +6,109 @@
 <h5>Customers Vehicles</h5>
 <hr />
 
-<div class="row container-cards">
-    @foreach (var item in Model?? new List<WebApp.Models.Vehicle>())
-    {
-        <div class="col s12 m3 vehicle-card">
-            <div class="card-vehicle">
-                <div class="card-image">
-                    <img class="card-vehicle" src="~/img/vehicle.jpg">
-                </div>
-                <input hidden value="@item.Id" />
-                <div class="row row-data">
-                    <div class="col s4">
-                        <span for="brand">Brand:</span>
+@if (Model.Count==0)
+{
+    <div class="row no-data">
+        <div class="col s12">
+            <img src="~/img/car-nodata.png" class="user-nodata" />
+            <h5 class="text-muted">
+                No Vehicles
+            </h5>
+            <p class="text-muted">
+                You do not have any vehicle for this Customer yet. Add a new vehicle.
+            </p>
+            <a asp-page="../Customers/Index"
+               class="btn btn-lg btn-team btn-center-vh">Return
+            </a>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+}
+else
+{
+    <div class="row container-cards">
+        @foreach (var item in Model)
+        {
+            <div class="col vehicle-card">
+                <div class="card-vehicle">
+                    <div class="card-image">
+                        <img class="card-vehicle" src="~/img/vehicle.jpg">
                     </div>
-                    <div class="col s6">
-                        <span vehicle-brand>@item.Brand</span>
-                    </div>
-                </div>
-                <div class="row row-data">
-                    <div class="col s4">
-                        <span for="model">Model:</span>
-                    </div>
-                    <div class="col s6">
-                        <span>@item.Model</span>
-                    </div>
-                </div>
-                <div class="row row-data">
-                    <div class="col s4">
-                        <span for="year">Year:</span>
-                    </div>
-                    <div class="col s6">
-                        <span>@item.Year</span>
-                    </div>
-                </div>
-                <div class="row row-data">
-                    <div class="col s4">
-                        <span for="ins">Insurance:</span>
-                    </div>
-                    <div class="col s6">
-                        <span>0</span>
-                    </div>
-                </div>
-
-                <div class="row btn-row">
-                    <a class="btn btn-team btn-car"
-                       asp-page="../Insurances/Add"
-                       asp-route-vehicleid="@item.Id">
-                        ADD INSURANCE
-                    </a>
-                    <form method="post">
-                        <div class="">
-                            <button type="submit"
-                                    class="btn btn-team btn-car"
-                                    asp-page-handler="delete"
-                                    asp-route-vehicleid="@item.Id">
-                                DELETE
-                            </button>
+                    <input hidden value="@item.Id" />
+                    <div class="row row-data">
+                        <div class="col s4">
+                            <span for="brand">Brand:</span>
                         </div>
-                    </form>
+                        <div class="col s6">
+                            <span vehicle-brand>@item.Brand</span>
+                        </div>
+                    </div>
+                    <div class="row row-data">
+                        <div class="col s4">
+                            <span for="model">Model:</span>
+                        </div>
+                        <div class="col s6">
+                            <span>@item.Model</span>
+                        </div>
+                    </div>
+                    <div class="row row-data">
+                        <div class="col s4">
+                            <span for="year">Year:</span>
+                        </div>
+                        <div class="col s6">
+                            <span>@item.Year</span>
+                        </div>
+                    </div>
+                    @foreach (var i in @item.Insurances)
+                    {
+                        <div class="row row-data">
+                            <div class="col s4">
+                                <span for="ins">Insurance:</span>
+                            </div>
+                            <div class="col s6">
+                                <span>@i.Total.ToString("C")</span>
+                            </div>
+                        </div>
+                    }
+                    @if (item.Insurances.Count < 1)
+                    {
+                        <div class="row row-data">
+                            <div class="col s4">
+                                <span for="ins">Insurance:</span>
+                            </div>
+                            <div class="col s6">
+                                <span>0</span>
+                            </div>
+                        </div>
+                    }
+                    <div class="row btn-row">
+                        @if (item.Insurances.Count < 1)
+                        {
+                            <a class="btn btn-team btn-car"
+                               asp-page="../Insurances/Add"
+                               asp-route-vehicleid="@item.Id">
+                                ADD INSURANCE
+                            </a>
+                        }
+                        <form method="post">
+                            <div class="">
+                                <button type="submit"
+                                        class="btn btn-team btn-car"
+                                        asp-page-handler="delete"
+                                        asp-route-vehicleid="@item.Id">
+                                    DELETE
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
+}
+
 <br />
 <br />
 <br />

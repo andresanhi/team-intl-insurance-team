@@ -20,6 +20,7 @@ namespace ITP.WebApp.Pages.Vehicles
         public Vehicle Vehicle { get; set; }
         public int Age { get; set; }
         public int MaxYear { get; set; }
+        [BindProperty]
         public Guid CustomerId { get; set; }
         public AddModel(CustomerStore customerStore, VehicleStore vehicleStore)
         {
@@ -44,7 +45,7 @@ namespace ITP.WebApp.Pages.Vehicles
             }
            
             VehicleStore.AddVehicle(Vehicle);
-            return RedirectToPage("../Customers/Index");
+            return RedirectToPage("../Customers/View", new { customerid = Vehicle.CustomerId });
         }
     }
 }

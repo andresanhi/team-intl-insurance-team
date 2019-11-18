@@ -26,6 +26,7 @@ namespace ITP.WebApp.Pages.Insurances
         public CustomerStore CustomerStore { get; set; }
         public InsuranceStore InsuranceStore { get; set; }
         public InsurancesRules InsurancesRules { get; set; }
+        public int Age { get; set; }
         public AddModel(VehicleStore vehicleStore, CustomerStore customerStore, InsuranceStore insuranceStore, 
                         InsurancesRules insurancesRules)
         {
@@ -43,6 +44,7 @@ namespace ITP.WebApp.Pages.Insurances
             idVehicle = Vehicle.Id;
             City = Customer.City;
             Insurance = InsurancesRules.GetPrice(idCustomer, idVehicle);
+            Age = DateTime.Today.AddTicks(-Customer.BornDate.Ticks).Year - 1;
         }
 
 
@@ -53,7 +55,7 @@ namespace ITP.WebApp.Pages.Insurances
                 return Page();
             }
             InsuranceStore.AddInsurance(Insurance);
-            return RedirectToPage("../Customers/Index");
+            return RedirectToPage("../Customers/View", new { customerid = Insurance.CustomerId });
         }
     }
 }
