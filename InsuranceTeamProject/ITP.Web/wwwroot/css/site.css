@@ -339,4 +339,29 @@ th{
     text-align: center;
     font-weight: bold;
 }
-/*#endregion */
+.add-veh-container{
+    margin-left:20% !important;
+}
+
+.search-wrapper input#txtsearch {
+    color: #777;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    width: 100%;
+    height: 62px;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 45px 0 30px;
+    border: 0;
+}
+.search-wrapper i.material-icons {
+    position: absolute;
+    cursor: pointer;
+    top: 180px !important;
+}
+.btn-center-sale{
+    margin-left: 45%;
+}
+    /*#endregion */

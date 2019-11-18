@@ -5,50 +5,74 @@
 }
 
 <div class="container-sales">
-<h3>Sales Reports</h3>
-<input type="text" id="txtsearch" placeholder="Enter Customer Name..."/>
-<form method="POST">
-    <table class="table responsive-table" id="sales-table">
-        <thead class="thead-dark my-thead">
-            <tr>
-                <th>DocNumer</th>
-                <th>Name</th>
-                <th>City</th>
-                <th>Brand</th>
-                <th>Year</th>
-                <th>BasePrice</th>
-                <th>Increse by <br />Age</th>
-                <th>Increase By <br /> Car Model</th>
-                <th>Increase By <br />City</th>
-                <th>Total</th>
-                <th>Delete <br /> Insurance</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Sales)
-            {
-                <tr>
-                    <td>@item.DocNumber</td>
-                    <td>@item.Name @item.LastName</td>
-                    <td>@item.City</td>
-                    <td>@item.Brand</td>
-                    <td>@item.Year</td>
-                    <td>@item.Baseprice.ToString("C")</td>
-                    <td>@item.IncreaseByAge.ToString("C")</td>
-                    <td>@item.IncreaseByCar.ToString("C")</td>
-                    <td>@item.IncreaseByCity.ToString("C")</td>
-                    <td>@item.Total.ToString("C")</td>
-                    <td>
-                        <button type="submit"
-                                class="btn-floating btn-medium waves-effect waves-light white btn-table"
-                                asp-page-handler="delete"
-                                asp-route-id="@item.InsuranceId">
-                            <i class="medium material-icons button-item button-item-2">delete</i>
-                        </button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</form>
+    <h3>Sales Reports</h3>
+    <div class="search-wrapper">
+        <div class="">
+            <input type="text" id="txtsearch" placeholder="Enter Customer Name Or Document Number..." />
+            <i class="material-icons">search</i>
+        </div>
+    </div>
+    @if (Model.Insurances.Count == 0)
+    {
+        <div class="row no-data">
+            <div class="col s12">
+                <img src="~/img/reports-nodata.png" class="user-nodata" />
+                <h5 class="text-muted">
+                    No Sales
+                </h5>
+                <p class="text-muted">
+                    You do not have any sales yet. Add a new sales.
+                </p>
+                <a asp-page="../Customers/Index"
+                    class="btn btn-lg btn-team btn-center-sale">Add Sale</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <form method="POST">
+            <table class="table responsive-table" id="sales-table">
+                <thead class="thead-dark my-thead">
+                    <tr>
+                        <th>DocNumer</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Brand</th>
+                        <th>Year</th>
+                        <th>BasePrice</th>
+                        <th>Increse by <br />Age</th>
+                        <th>Increase By <br /> Car Model</th>
+                        <th>Increase By <br />City</th>
+                        <th>Total</th>
+                        <th>Delete <br /> Insurance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Sales)
+                    {
+                        <tr>
+                            <td>@item.DocNumber</td>
+                            <td>@item.Name @item.LastName</td>
+                            <td>@item.City</td>
+                            <td>@item.Brand</td>
+                            <td>@item.Year</td>
+                            <td>@item.Baseprice.ToString("C")</td>
+                            <td>@item.IncreaseByAge.ToString("C")</td>
+                            <td>@item.IncreaseByCar.ToString("C")</td>
+                            <td>@item.IncreaseByCity.ToString("C")</td>
+                            <td>@item.Total.ToString("C")</td>
+                            <td>
+                                <button type="submit"
+                                        class="btn-floating btn-medium waves-effect waves-light white btn-table"
+                                        asp-page-handler="delete"
+                                        asp-route-id="@item.InsuranceId">
+                                    <i class="medium material-icons button-item button-item-2">delete</i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </form>
+    }
 </div>
