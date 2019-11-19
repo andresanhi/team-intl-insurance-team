@@ -23,10 +23,34 @@ namespace ITP.WebApp.Data
                 State = "Bogotá",
                 Country = "Colombia"
             });
+            Cities.Add(new City
+            {
+                CityName = "Barranquilla",
+                State = "Altántico",
+                Country = "Colombia"
+            });
+            Cities.Add(new City
+            {
+                CityName = "Cartagena",
+                State = "Bolivar",
+                Country = "Colombia"
+            });
+            Cities.Add(new City
+            {
+                CityName = "Cali",
+                State = "Valle del Cauca",
+                Country = "Colombia"
+            });
+            Cities.Add(new City
+            {
+                CityName = "Bucaramanga",
+                State = "Santander",
+                Country = "Colombia"
+            });
         }
         internal List<City> GetCities()
         {
-            return Cities;
+            return Cities.OrderBy(x => x.CityName).ToList();
         }
     }
 }
